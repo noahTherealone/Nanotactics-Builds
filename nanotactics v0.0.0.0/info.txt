@@ -1,0 +1,30 @@
+Player controls (Switch):
+-walk via left stick
+-lock position for more precise left stick aim with ZL
+-call back nanites with ZR
+-move calling area with right stick
+-throw nanites with B (A on XBox)
+-change selected nanite species with left/right on the control pad, shown on the bottom right
+-icons show number of every species at hand, numbers below: at hand/following player/alive
+-select/deselect enemy/object as target with L if in direct line of sight, player will keep facing towards it
+-if a target is selected, send all nanites of the selected species towards it with R (does not yet work as intended, nanites are blocking each other)
+
+Nanite behaviour:
+-when following the player, they try to remain within the circle behind the player (which gradually adapts to their number)
+-their pathfinding can only navigate the hexagonal tiles, although there is no collision boundary outside of it
+-when thrown at an enemy, they initiate combat (see species)
+-defeated enemies turn into remnants, which can be transported to the base by throwing the required number of nanites at them (blue and red count x2, black counts x4)
+-nanites can still be called back, which will stop the transport
+-the transport speed depends on the average speed of the carrying nanites
+-if they take damage, their circular green health-bar as well as their yellow energy-bar become visible - the latter does not do anything thus far
+
+Nanite example species and their combat styles:
+-grey: evasive, will only deal damage once and retreat immediately
+-green: sticking, will attach to enemies and drain them gradually - can be shaken off and receive damage in the process
+-blue: melee, will rush against the enemy repeatedly - has a damage multiplier for being thrown
+-red: projectile, will try to stay within a desired distance from which it can shoot projectiles
+-yellow: area, will emit a circular area of continuous damage
+-black: self-destruct, will deal significant amount of damage but die in the process (explosion to be added later)
+Various stats differ.
+
+Enemies follow the closest player/nanite within a circular radius, except for nanites that are attached to them. They will prepare an attack every few seconds, leaving the player time to react, and then rush forwards, dealing damage to everything in front of them, as well as extra damage to attached nanites, which will be shaken off.
